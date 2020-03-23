@@ -42,6 +42,11 @@ public class App {
 
     private void inputFigure() {
         //TODO: Hier die auszugebende Figur einlesen/
+        output.println("Bitte geben Sie Zahl von 1-6 ein");
+        figure = input.nextInt();//Figure ist Casezahl
+        if(figure<1 || figure>6){
+            output.println("Zahl muss zwischen 1-6 liegen");
+        }//else{output.println(figureToPrint);}
     }
 
     private void inputFaktor() {
@@ -52,6 +57,21 @@ public class App {
         switch (figure){
             case 1:
                 figureToPrint = new FigureH(faktor);
+                break;
+            case 2:
+                figureToPrint = new FigureL(faktor);
+                break;
+            case 3:
+                figureToPrint = new FigureO(faktor);
+                break;
+            case 4:
+                figureToPrint = new FigureO2(faktor);
+                break;
+            case 5:
+                figureToPrint = new FigureI(faktor);
+                break;
+            case 6:
+                figureToPrint = new FigureMinus(faktor);
                 break;
             //TODO: hier entsprechend erweitern
             default: break;

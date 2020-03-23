@@ -12,9 +12,18 @@ public abstract class Figure {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
+        for(int i=0; i<3;i++){
+            for(int j=0; j<3;j++){
+                System.out.print(symbol[j][i]);
+            }
+            System.out.println();
+        }
+
         //TODO: Implementieren der Ausgabe in einen StringBuilder
 
-        sb.append("Hallo, bitte eine Zahl von 1-6 eingeben");
+        sb.append("Weiter mit der nächsten Zahl");
+
+
 
         return sb.toString();
     }
