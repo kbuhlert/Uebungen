@@ -2,7 +2,7 @@ package at.campus02.nowa.figures;
 
 public class FigureI extends Figure {
     public FigureI(int faktor) {
-        super(faktor);
+        super(faktor);                  // was bedeuted 'super' und was macht er mit dem Faktor
 
         symbol[0][0] = ' ';
         symbol[1][0] = 'X';
