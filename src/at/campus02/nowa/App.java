@@ -20,12 +20,13 @@ public class App {              //Ich verstehe die Logik hinter der App-Klasse n
 
     public void Run() {         // diese Methode wird in Main aufgerufen, ich verstehe aber die Logik, der Befehle in der Methode nicht.
         initialize();               //was macht initialize? Leere Methode?
-        printState();               //braucht die figureToPrint, die aber erst mit updateState() initialisiert wird, warum wird das jetzt aufgerufen
+        printState();               //was macht printState() hier? Es braucht die figureToPrint, die aber erst mit updateState() initialisiert wird.
+                                    // Warum wird das jetzt aufgerufen und später nochmal?
 
-        while(!exit) {          //exit ist boolean und false, !exit = true
-            readUserInput();        //Methode die wiederum den scanner aufruft und figure mit einer Zahl initialisiert
+        while(!exit) {          //exit ist boolean und Klassenattribut und mit 'false' initialisiert ==> !exit = true?
+            readUserInput();        //Methode die wiederum den scanner aufruft und das Attribut figure mit einer Zahl initialisiert
             updateState();          //figure gibt die Zahl aus dem scanner in den switch und initialisiert die figureToPrint
-            printState();           //figuretoprint wird vom output aufgerufen oder in den output gegeben?
+            printState();           //figuretoprint wird vom output aufgerufen oder in den output gegeben? Wie funktioniert "output" Wie ist es mit StringBuilder verbunden?
 
             exit = !askContinue();      //warum ist exit die Verneinung von askContinue()?
         }                              //die toString Methode der figures, die für die Ausgabe der Figures wichtig ist wird nirgend aufgerufen? Wie können figures ausgegeben werden?
@@ -40,10 +41,10 @@ public class App {              //Ich verstehe die Logik hinter der App-Klasse n
         inputFaktor();
     }
 
-    private void inputFigure() {        // wird von readuserInput aufgerufen und regelt scanner eingabe (Zahl von 1 bis6)
+    private void inputFigure() {                // wird von readuserInput aufgerufen und regelt scanner eingabe (Zahl von 1 bis6)
         //TODO: Hier die auszugebende Figur einlesen/
         output.println("Bitte geben Sie Zahl von 1-6 ein");
-        figure = input.nextInt();//Figure ist Casezahl
+        figure = input.nextInt();               //Figure ist Casezahl, erhält Wert von 1-6
         if(figure<1 || figure>6){
             output.println("Zahl muss zwischen 1-6 liegen");
         }
