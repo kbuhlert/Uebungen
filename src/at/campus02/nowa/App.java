@@ -28,7 +28,7 @@ public class App {              //Ich verstehe die Logik hinter der App-Klasse n
             updateState();          //figure gibt die Zahl aus dem scanner in den switch und initialisiert die figureToPrint
             printState();           //figuretoprint wird vom output aufgerufen oder in den output gegeben? Wie funktioniert "output" Wie ist es mit StringBuilder verbunden?
 
-            exit = !askContinue();      //warum ist exit die Verneinung von askContinue()?
+            //exit = !askContinue();      //warum ist exit die Verneinung von askContinue()? Brauchen wir hier nicht
         }                              //die toString Methode der figures, die für die Ausgabe der Figures wichtig ist wird nirgend aufgerufen? Wie können figures ausgegeben werden?
     }
 
@@ -44,15 +44,27 @@ public class App {              //Ich verstehe die Logik hinter der App-Klasse n
     private void inputFigure() {                // wird von readuserInput aufgerufen und regelt scanner eingabe (Zahl von 1 bis6)
         //TODO: Hier die auszugebende Figur einlesen/
         output.println("Bitte geben Sie Zahl von 1-6 ein");
-        figure = input.nextInt();               //Figure ist Casezahl, erhält Wert von 1-6
-        if(figure<1 || figure>6){
+        do{
+            figure = input.nextInt();               //Figure ist Casezahl, erhält Wert von 1-6
+            if(figure<1 || figure>6){
             output.println("Zahl muss zwischen 1-6 liegen");
+            }else {break;}                         //sobald die Eingabe korrekt ist, brechen wir Schleife ab
         }
+        while(true);            //Endlosschleife, die durch 'break' unterrbrochen wird, wenn Eingabe korrekt (--> if-Bedingung falsch)
     }
 
     private void inputFaktor() {
         //TODO: Hier den Faktor einlesen
+        output.println("Bitte geben Sie Faktor von 1-3 ein");
+        do{
+            faktor = input.nextInt();               //Figure ist Casezahl, erhält Wert von 1-6
+            if(faktor<1 || faktor>3){
+                output.println("Zahl muss zwischen 1-3 liegen");
+            }else {break;}                        //sobald die Eingabe korrekt ist, brechen wir Schleife ab
+        }
+        while(true);            //Endlosschleife, die durch 'break' unterrbrochen wird, wenn Eingabe korrekt (--> if-Bedingung falsch)
     }
+
 
     private void updateState() {
         switch (figure){
@@ -75,7 +87,7 @@ public class App {              //Ich verstehe die Logik hinter der App-Klasse n
                 figureToPrint = new FigureMinus(faktor);
                 break;
             //TODO: hier entsprechend erweitern
-            default: break;
+            //default: break;       //brauch ich hier nicht, weil oben nur die richtige Zahl eingelesen wird, wenn ander Zahl als 1-6 eingegebne wird, wird nach neuer Eingabe gefragt
         }
     }
 
@@ -83,6 +95,7 @@ public class App {              //Ich verstehe die Logik hinter der App-Klasse n
         if (figureToPrint != null){              //heißt != null, wenn eine figureToPrint erstellt wurde, dann soll diese ausgegeben werden?
             output.println(figureToPrint);      //die figureToPrint wurde im switch (updateState-Methode) erstellt
         }                                      //output ist eine Variable vom Typ PrintStream, keine Ahnung was das ist
+                                                // Println ruft automatisch das toString auf. Gleich wie figureToPrint.toString
     }
 
     private boolean askContinue(){

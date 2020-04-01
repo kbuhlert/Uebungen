@@ -10,13 +10,23 @@ public abstract class Figure {
 
     @Override
     public String toString() {                      //die Methode toString wird nirgends aufgerufen, wie kommt der Stringbuilder in die Klasse App?
-        StringBuilder sb = new StringBuilder();         //String Builder bitte nochmal erklären
+        StringBuilder sb = new StringBuilder();//String Builder bitte nochmal erklären
+
+        //hier Fakto einbauen:
+        // Faktor1: X
+        //Faktor2: XX
+        //         XX
+        //Faktor3: XXX
+        //         XXX
+        //         XXX
+
 
         for(int i=0; i<3;i++){
             for(int j=0; j<3;j++){
-                System.out.print(symbol[j][i]+"\t");         //Eigentlich sollten wir kein SOUT verwenden, sondern String Builer, funktioniert aber nicht mit sb.append
+                for (int jFaktor = 0; jFaktor < faktor; jFaktor++){
+                sb.append(symbol[j][i]+"\t");  }       //Eigentlich sollten wir kein SOUT verwenden, sondern String Builer, funktioniert aber nicht mit sb.append
             }                                           //Wie würde das mit Stringbuilder aussehen.
-            System.out.println();
+            sb.append('\n');
         }
 
         //TODO: Implementieren der Ausgabe in einen StringBuilder
